@@ -19,11 +19,6 @@ import {
   Users,
   Bell,
   Gift,
-  Heart,
-  Github,
-  Twitter,
-  Instagram,
-  Youtube,
   Sun,
   Moon,
   ChevronDown,
@@ -315,7 +310,7 @@ function LandingPage() {
       </header>
 
       {/* Main Content Area */}
-      <main className="relative z-10 mx-auto max-w-7xl px-4 pt-[68px] sm:px-6">
+      <main className="relative z-10 mx-auto max-w-7xl px-4 pt-[68px] pb-10 sm:px-6 sm:pb-12">
         {/* Compact Hero Section */}
         <section className="relative pt-3 sm:pt-5 lg:pt-6">
           <div className="max-w-xl lg:max-w-2xl">
@@ -522,101 +517,7 @@ function LandingPage() {
             </Link>
           ))}
         </section>
-
-        {/* Social Proof & Metrics Bar */}
-        <section className="mt-4 grid grid-cols-2 items-center gap-3 rounded-2xl border border-primary/15 bg-card/60 p-4 backdrop-blur md:grid-cols-5 dark:bg-card/40">
-          {/* Avatar Stack */}
-          <div className="col-span-2 flex items-center gap-2.5 sm:col-span-1">
-            <div className="flex -space-x-2">
-              {[
-                "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=64&h=64&fit=crop&crop=faces",
-                "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=64&h=64&fit=crop&crop=faces",
-                "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=64&h=64&fit=crop&crop=faces",
-                "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=64&h=64&fit=crop&crop=faces",
-              ].map((src, i) => (
-                <img
-                  key={i}
-                  src={src}
-                  alt="User"
-                  className="h-6 w-6 rounded-full border-2 border-background object-cover"
-                  loading="lazy"
-                />
-              ))}
-              <span className="grid h-6 w-6 place-items-center rounded-full border-2 border-background bg-primary text-[9px] font-bold text-primary-foreground">
-                +
-              </span>
-            </div>
-            <div className="text-xs font-semibold leading-tight">
-              <span className="text-[10px] font-normal text-muted-foreground">Loved by</span>
-              <br />
-              10K+ <span className="font-normal text-muted-foreground">Users</span>
-            </div>
-          </div>
-
-          {[
-            { icon: Heart, v: "99.9%", l: "Accuracy", c: "text-pink-500" },
-            { icon: ShieldCheck, v: "100%", l: "Private", c: "text-primary" },
-            { icon: User, v: "0", l: "Sign Ups", c: "text-indigo-500" },
-            { icon: Globe, v: "∞", l: "Possibilities", c: "text-blue-500" },
-          ].map((s) => (
-            <div key={s.l} className="text-center">
-              <div className="mx-auto grid h-7 w-7 place-items-center rounded-full bg-primary/10">
-                <s.icon className={cn("h-3.5 w-3.5", s.c)} />
-              </div>
-              <div className="mt-0.5 text-base font-bold text-foreground">{s.v}</div>
-              <div className="text-[10.5px] text-muted-foreground">{s.l}</div>
-            </div>
-          ))}
-        </section>
       </main>
-
-      {/* Footer */}
-      <footer className="relative z-10 mx-auto mt-6 flex max-w-7xl flex-col items-center gap-3 border-t border-border/40 px-4 py-4 text-xs text-muted-foreground sm:px-6 lg:flex-row lg:justify-between">
-        <Logo />
-
-        <div className="flex flex-wrap justify-center gap-4 text-xs">
-          <Link to="/about" className="hover:text-primary transition">
-            About Us
-          </Link>
-          <a href="#features" onClick={scrollToFeatures} className="hover:text-primary transition">
-            Features
-          </a>
-          <Link to="/about" className="hover:text-primary transition">
-            Privacy Policy
-          </Link>
-          <Link to="/about" className="hover:text-primary transition">
-            Terms of Use
-          </Link>
-          <Link to="/about" className="hover:text-primary transition">
-            Contact
-          </Link>
-        </div>
-
-        <div className="flex items-center gap-2">
-          {[
-            { icon: Github, href: "https://github.com" },
-            { icon: Twitter, href: "https://twitter.com" },
-            { icon: Instagram, href: "https://instagram.com" },
-            { icon: Youtube, href: "https://youtube.com" },
-          ].map((item, i) => (
-            <a
-              key={i}
-              href={item.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="grid h-7 w-7 place-items-center rounded-full border border-border bg-card shadow-soft transition hover:border-primary hover:text-primary"
-            >
-              <item.icon className="h-3 w-3" />
-            </a>
-          ))}
-        </div>
-
-        <div className="text-center text-[11px] text-muted-foreground lg:text-right">
-          Made with <Heart className="inline h-3 w-3 fill-destructive text-destructive" /> by
-          DOBverse Team
-          <br />© {new Date().getFullYear()} DOBverse. All rights reserved.
-        </div>
-      </footer>
     </div>
   );
 }
