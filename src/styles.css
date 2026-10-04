@@ -1,0 +1,310 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-magenta: var(--magenta);
+  --color-cosmic: var(--cosmic);
+  --color-cosmic-foreground: var(--cosmic-foreground);
+  --color-success: var(--success);
+  --color-warn: var(--warn);
+  --color-info: var(--info);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+}
+
+:root {
+  --radius: 0.875rem;
+  --background: oklch(0.975 0.01 295);
+  --foreground: oklch(0.2 0.05 285);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.2 0.05 285);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.2 0.05 285);
+  --primary: oklch(0.53 0.25 290);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.955 0.025 295);
+  --secondary-foreground: oklch(0.45 0.22 290);
+  --muted: oklch(0.96 0.015 295);
+  --muted-foreground: oklch(0.5 0.03 285);
+  --accent: oklch(0.94 0.04 295);
+  --accent-foreground: oklch(0.45 0.22 290);
+  --destructive: oklch(0.63 0.23 15);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.92 0.018 295);
+  --input: oklch(0.9 0.02 295);
+  --ring: oklch(0.6 0.2 290);
+  --magenta: oklch(0.66 0.26 345);
+  --cosmic: oklch(0.17 0.07 285);
+  --cosmic-foreground: oklch(0.98 0.01 295);
+  --success: oklch(0.7 0.17 150);
+  --warn: oklch(0.75 0.17 60);
+  --info: oklch(0.62 0.19 255);
+  --chart-1: oklch(0.55 0.24 290);
+  --chart-2: oklch(0.72 0.15 175);
+  --chart-3: oklch(0.66 0.24 0);
+  --chart-4: oklch(0.78 0.16 70);
+  --chart-5: oklch(0.62 0.19 255);
+  --gradient-brand: linear-gradient(90deg, var(--primary), var(--magenta));
+  --gradient-cta: linear-gradient(90deg, oklch(0.5 0.26 285), oklch(0.62 0.26 320));
+  --shadow-soft: 0 8px 30px -12px oklch(0.45 0.2 290 / 0.18);
+  --shadow-glow: 0 10px 30px -8px oklch(0.55 0.25 290 / 0.55);
+}
+
+.dark {
+  --background: oklch(0.14 0.045 285);
+  --foreground: oklch(0.97 0.01 295);
+  --card: oklch(0.18 0.055 285);
+  --card-foreground: oklch(0.97 0.01 295);
+  --popover: oklch(0.18 0.055 285);
+  --popover-foreground: oklch(0.97 0.01 295);
+  --primary: oklch(0.62 0.24 295);
+  --secondary: oklch(0.24 0.07 288);
+  --secondary-foreground: oklch(0.85 0.1 295);
+  --muted: oklch(0.22 0.06 285);
+  --muted-foreground: oklch(0.72 0.04 290);
+  --accent: oklch(0.26 0.08 290);
+  --accent-foreground: oklch(0.88 0.1 295);
+  --border: oklch(0.32 0.07 288 / 0.6);
+  --input: oklch(0.3 0.07 288);
+  --shadow-soft: 0 8px 30px -12px oklch(0 0 0 / 0.5);
+}
+
+@utility text-gradient {
+  background-image: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+@utility bg-gradient-brand {
+  background-image: var(--gradient-brand);
+}
+@utility bg-gradient-cta {
+  background-image: var(--gradient-cta);
+}
+@utility shadow-soft {
+  box-shadow: var(--shadow-soft);
+}
+@utility shadow-glow {
+  box-shadow: var(--shadow-glow);
+}
+
+@utility hero-fade {
+  mask-image: radial-gradient(ellipse 90% 88% at 60% 48%, #000 68%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 88% at 60% 48%, #000 68%, transparent 100%);
+}
+
+@utility hero-cosmic-bg {
+  mask-image:
+    radial-gradient(ellipse 85% 85% at 75% 45%, #000 55%, transparent 100%),
+    linear-gradient(to right, transparent 0%, #000 20%);
+  -webkit-mask-image:
+    radial-gradient(ellipse 85% 85% at 75% 45%, #000 55%, transparent 100%),
+    linear-gradient(to right, transparent 0%, #000 20%);
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+@keyframes confetti {
+  0% {
+    transform: translateY(-10vh) rotate(0);
+  }
+  100% {
+    transform: translateY(110vh) rotate(720deg);
+  }
+}
+@utility animate-twinkle {
+  animation: twinkle 2.5s ease-in-out infinite;
+}
+@utility animate-floaty {
+  animation: floaty 5s ease-in-out infinite;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    font-family: var(--font-sans);
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+  }
+}
+
+/* Birth Year Snapshot surfaces (light + dark) */
+@utility snap-card {
+  background: linear-gradient(
+    180deg,
+    var(--card),
+    color-mix(in oklab, var(--card) 88%, var(--primary))
+  );
+  border: 1px solid color-mix(in oklab, var(--primary) 18%, var(--border));
+  box-shadow: var(--shadow-soft);
+  color: var(--card-foreground);
+}
+@utility snap-hero {
+  background:
+    radial-gradient(
+      circle at 55% 50%,
+      color-mix(in oklab, var(--primary) 22%, transparent),
+      transparent 55%
+    ),
+    linear-gradient(135deg, var(--card), color-mix(in oklab, var(--card) 80%, var(--magenta)));
+  border: 1px solid color-mix(in oklab, var(--primary) 35%, var(--border));
+  box-shadow: var(--shadow-soft);
+}
+.dark .snap-card {
+  box-shadow:
+    0 0 0 1px oklch(0.6 0.24 295 / 0.12),
+    0 10px 30px -12px oklch(0.55 0.25 290 / 0.45);
+}
+.dark .snap-hero {
+  background:
+    radial-gradient(circle at 55% 50%, oklch(0.4 0.2 295 / 0.45), transparent 55%),
+    oklch(0.13 0.05 285);
+  box-shadow: 0 0 40px -10px oklch(0.55 0.25 290 / 0.6);
+}
+@utility india-fade {
+  mask-image: linear-gradient(90deg, transparent, #000 45%);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 45%);
+  opacity: 0.9;
+}
+
+/* Birthday card editor: card content scales with the actual card width. */
+.card-art {
+  isolation: isolate;
+}
+.card-element small {
+  display: block;
+  font-size: 0.43em;
+  font-weight: 500;
+  line-height: 1.2;
+}
+.card-element strong {
+  display: block;
+  max-width: 100%;
+  font-size: 0.73em;
+  font-weight: 700;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+}
+.card-element.card-selected {
+  outline: 2px dashed var(--primary);
+  outline-offset: 2px;
+  z-index: 20;
+}
+.card-handle {
+  position: absolute;
+  z-index: 21;
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--primary-foreground);
+  border-radius: 50%;
+  background: var(--primary);
+  touch-action: none;
+}
+.card-handle-resize {
+  bottom: -5px;
+  right: -5px;
+  cursor: nwse-resize;
+}
+.card-handle-rotate {
+  top: -19px;
+  left: calc(50% - 5px);
+  cursor: grab;
+}
+.card-element {
+  touch-action: none;
+}
+.card-exporting .card-selected {
+  outline: none;
+}
+.card-exporting .card-handle {
+  display: none;
+}
+@media (max-width: 1279px) {
+  .editor-layout {
+    grid-template-columns: minmax(190px, 1fr) minmax(0, 2fr);
+  }
+  .editor-layout > aside:last-child {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .editor-layout > aside:last-child > section:last-child {
+    grid-column: 1 / -1;
+  }
+}
+@media (max-width: 767px) {
+  .editor-layout {
+    display: flex;
+    flex-direction: column;
+  }
+  .editor-layout > * {
+    width: 100%;
+  }
+  .editor-layout > aside:last-child {
+    display: flex;
+    flex-direction: column;
+  }
+  .canvas-stage {
+    min-height: 0;
+  }
+}
