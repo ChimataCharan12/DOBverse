@@ -341,15 +341,15 @@ function HabitTrackerPage() {
         </div>
 
         {/* Matrix Container with horizontal scrolling */}
-        <div className="overflow-x-auto rounded-xl border bg-card/60">
-          <table className="w-full border-collapse text-left text-sm">
+        <div className="overflow-x-auto rounded-xl border bg-card/60 overscroll-x-contain">
+          <table className="min-w-full w-max border-collapse text-left text-sm">
             <thead>
               {/* Row 1: Week grouping headers */}
               <tr className="border-b bg-muted/30">
-                <th className="sticky left-0 z-20 min-w-[200px] border-r bg-card px-4 py-3 font-semibold sm:min-w-[240px]">
+                <th className="w-[180px] min-w-[180px] max-w-[180px] border-r bg-card px-3 py-3 font-semibold sm:sticky sm:left-0 sm:z-20 sm:w-[220px] sm:min-w-[220px] sm:max-w-[220px] sm:px-4">
                   Habit
                 </th>
-                <th className="sticky left-[200px] z-20 min-w-[110px] border-r bg-card px-3 py-3 font-semibold sm:left-[240px] sm:min-w-[130px]">
+                <th className="w-[110px] min-w-[110px] max-w-[110px] border-r bg-card px-2.5 py-3 font-semibold sm:sticky sm:left-[220px] sm:z-20 sm:w-[130px] sm:min-w-[130px] sm:max-w-[130px] sm:px-3 sm:shadow-[2px_0_4px_-2px_rgba(0,0,0,0.08)]">
                   Goal
                 </th>
                 {weekGroups.map((group) => (
@@ -364,19 +364,23 @@ function HabitTrackerPage() {
                     </div>
                   </th>
                 ))}
-                <th className="min-w-[80px] border-l px-3 py-3 text-center text-xs font-semibold">
+                <th className="w-[80px] min-w-[80px] max-w-[80px] border-l px-2 py-3 text-center text-xs font-semibold sm:px-3">
                   Done / Days
                 </th>
-                <th className="min-w-[60px] px-2 py-3 text-center text-xs font-semibold">%</th>
-                <th className="min-w-[70px] px-3 py-3 text-center text-xs font-semibold">Streak</th>
+                <th className="w-[60px] min-w-[60px] max-w-[60px] px-1.5 py-3 text-center text-xs font-semibold sm:px-2">
+                  %
+                </th>
+                <th className="w-[70px] min-w-[70px] max-w-[70px] px-2 py-3 text-center text-xs font-semibold sm:px-3">
+                  Streak
+                </th>
               </tr>
 
               {/* Row 2: Day number and weekday */}
               <tr className="border-b bg-muted/20 text-xs">
-                <th className="sticky left-0 z-20 border-r bg-card px-4 py-2 text-muted-foreground font-medium">
+                <th className="w-[180px] min-w-[180px] max-w-[180px] border-r bg-card px-3 py-2 text-xs text-muted-foreground font-medium sm:sticky sm:left-0 sm:z-20 sm:w-[220px] sm:min-w-[220px] sm:max-w-[220px] sm:px-4">
                   {filteredHabits.length} {filteredHabits.length === 1 ? "habit" : "habits"}
                 </th>
-                <th className="sticky left-[200px] z-20 border-r bg-card px-3 py-2 text-muted-foreground font-medium sm:left-[240px]">
+                <th className="w-[110px] min-w-[110px] max-w-[110px] border-r bg-card px-2.5 py-2 text-xs text-muted-foreground font-medium sm:sticky sm:left-[220px] sm:z-20 sm:w-[130px] sm:min-w-[130px] sm:max-w-[130px] sm:px-3 sm:shadow-[2px_0_4px_-2px_rgba(0,0,0,0.08)]">
                   Target
                 </th>
                 {weekGroups.flatMap((group) =>
@@ -393,13 +397,13 @@ function HabitTrackerPage() {
                     </th>
                   )),
                 )}
-                <th className="border-l px-2 py-2 text-center text-[11px] text-muted-foreground font-medium">
+                <th className="w-[80px] min-w-[80px] max-w-[80px] border-l px-1.5 py-2 text-center text-[11px] text-muted-foreground font-medium sm:px-2">
                   Total
                 </th>
-                <th className="px-2 py-2 text-center text-[11px] text-muted-foreground font-medium">
+                <th className="w-[60px] min-w-[60px] max-w-[60px] px-1 py-2 text-center text-[11px] text-muted-foreground font-medium sm:px-1.5">
                   Rate
                 </th>
-                <th className="px-2 py-2 text-center text-[11px] text-muted-foreground font-medium">
+                <th className="w-[70px] min-w-[70px] max-w-[70px] px-1.5 py-2 text-center text-[11px] text-muted-foreground font-medium sm:px-2">
                   🔥
                 </th>
               </tr>
@@ -452,22 +456,22 @@ function HabitTrackerPage() {
                       )}
                     >
                       {/* Habit Name & Icon Cell */}
-                      <td className="sticky left-0 z-10 border-r bg-card px-4 py-3 group-hover:bg-accent/40">
-                        <div className="flex items-center justify-between gap-2">
-                          <div className="flex items-center gap-2.5 min-w-0">
-                            <div className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary">
-                              <HabitIcon name={habit.icon} className="h-4 w-4" />
+                      <td className="w-[180px] min-w-[180px] max-w-[180px] border-r bg-card px-3 py-3 group-hover:bg-muted/80 transition-colors sm:sticky sm:left-0 sm:z-10 sm:w-[220px] sm:min-w-[220px] sm:max-w-[220px] sm:px-4">
+                        <div className="flex items-center justify-between gap-1.5 sm:gap-2">
+                          <div className="flex items-center gap-2 sm:gap-2.5 min-w-0">
+                            <div className="grid h-7 w-7 sm:h-8 sm:w-8 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary">
+                              <HabitIcon name={habit.icon} className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                             </div>
                             <div className="min-w-0">
-                              <div className="truncate font-semibold text-foreground flex items-center gap-1.5">
+                              <div className="truncate font-semibold text-foreground text-xs sm:text-sm flex items-center gap-1">
                                 <span className="truncate">{habit.name}</span>
                                 {habit.status === "paused" && (
-                                  <span className="rounded bg-muted px-1.5 py-0.5 text-[10px] text-muted-foreground font-normal">
+                                  <span className="shrink-0 rounded bg-muted px-1 py-0.5 text-[9px] sm:text-[10px] text-muted-foreground font-normal">
                                     Paused
                                   </span>
                                 )}
                               </div>
-                              <div className="text-[11px] text-muted-foreground">
+                              <div className="truncate text-[10px] sm:text-[11px] text-muted-foreground">
                                 {habit.category}
                               </div>
                             </div>
@@ -477,10 +481,10 @@ function HabitTrackerPage() {
                           <DropdownMenu>
                             <DropdownMenuTrigger asChild>
                               <button
-                                className="grid h-7 w-7 shrink-0 place-items-center rounded-lg text-muted-foreground hover:bg-accent hover:text-foreground"
+                                className="grid h-6 w-6 sm:h-7 sm:w-7 shrink-0 place-items-center rounded-lg text-muted-foreground hover:bg-accent hover:text-foreground"
                                 aria-label="Habit options"
                               >
-                                <MoreVertical className="h-4 w-4" />
+                                <MoreVertical className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                               </button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent align="start" className="w-40">
@@ -522,7 +526,7 @@ function HabitTrackerPage() {
                       </td>
 
                       {/* Goal Cell */}
-                      <td className="sticky left-[200px] z-10 border-r bg-card px-3 py-3 text-xs text-muted-foreground group-hover:bg-accent/40 sm:left-[240px]">
+                      <td className="w-[110px] min-w-[110px] max-w-[110px] border-r bg-card px-2.5 py-3 text-xs text-muted-foreground group-hover:bg-muted/80 transition-colors sm:sticky sm:left-[220px] sm:z-10 sm:w-[130px] sm:min-w-[130px] sm:max-w-[130px] sm:px-3 sm:shadow-[2px_0_4px_-2px_rgba(0,0,0,0.08)]">
                         <span className="truncate block font-medium">
                           {formatGoalString(habit)}
                         </span>
@@ -540,7 +544,7 @@ function HabitTrackerPage() {
                             <td
                               key={day.dateStr}
                               className={cn(
-                                "border-r border-border/40 p-1 text-center align-middle",
+                                "w-9 min-w-[36px] max-w-[36px] border-r border-border/40 p-1 text-center align-middle",
                                 day.isToday && "bg-primary/5",
                               )}
                             >
@@ -573,12 +577,12 @@ function HabitTrackerPage() {
                       )}
 
                       {/* Done / Days */}
-                      <td className="border-l px-3 py-3 text-center text-xs font-semibold">
+                      <td className="w-[80px] min-w-[80px] max-w-[80px] border-l px-2 py-3 text-center text-xs font-semibold sm:px-3">
                         {habitStat.completedCount} / {habitStat.expectedCount}
                       </td>
 
                       {/* Completion % */}
-                      <td className="px-2 py-3 text-center text-xs">
+                      <td className="w-[60px] min-w-[60px] max-w-[60px] px-1.5 py-3 text-center text-xs sm:px-2">
                         <span
                           className={cn(
                             "inline-block rounded-md px-1.5 py-0.5 font-bold",
@@ -594,7 +598,7 @@ function HabitTrackerPage() {
                       </td>
 
                       {/* Streak */}
-                      <td className="px-3 py-3 text-center text-xs font-bold">
+                      <td className="w-[70px] min-w-[70px] max-w-[70px] px-2 py-3 text-center text-xs font-bold sm:px-3">
                         {habitStat.streak > 0 ? (
                           <span className="inline-flex items-center gap-1 text-warn">
                             <Flame className="h-3.5 w-3.5 fill-warn" />
